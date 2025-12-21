@@ -55,7 +55,6 @@ int main(int argc, char *argv[])
     exit(EXIT_SUCCESS);
 }
 
-// void handle_exec(int argc, char **argv, char *src);
 void handle_exec(char *src, char *argv[]) {
     FILE *file = fopen(src, "r");
     if (file == NULL) {
@@ -70,8 +69,6 @@ void handle_exec(char *src, char *argv[]) {
         int s;
         while (fgets(line, sizeof(line), file)) {
             line[strcspn(line, "\n")] = '\0';
-
-            // Skip empty lines and comments
             if (line[0] == '\0' || line[0] == '#') {
                 continue;
             }
