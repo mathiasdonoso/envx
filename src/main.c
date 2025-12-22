@@ -5,18 +5,7 @@
 #include "../include/exec.h"
 #include "../include/link.h"
 
-void print_usage();
-void handle_link(char *src, char *dst);
-void handle_exec(char *src, char *argv[]);
-
 void print_usage(void);
-
-void print_usage(void) {
-    fprintf(stderr, "Usage: envx <subcommand> <env> <command> [args...]\n");
-    fprintf(stderr, "\nSubcommands:\n");
-    fprintf(stderr, "  exec  - Load environment and execute command\n");
-    fprintf(stderr, "  link  - Create .env symlink\n");
-}
 
 int main(int argc, char *argv[])
 {
@@ -57,4 +46,11 @@ int main(int argc, char *argv[])
 
     free(filename);
     exit(EXIT_SUCCESS);
+}
+
+void print_usage(void) {
+    fprintf(stderr, "Usage: envx <subcommand> <env> <command> [args...]\n");
+    fprintf(stderr, "\nSubcommands:\n");
+    fprintf(stderr, "  exec  - Load environment and execute command\n");
+    fprintf(stderr, "  link  - Create .env symlink\n");
 }
